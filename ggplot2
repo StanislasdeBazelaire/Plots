@@ -1,0 +1,30 @@
+setwd("C:/Users/Stanislas/Datascience/Exploratory data analysis/Box plot")
+install.packages("readODS")
+install.packages("ggplot2")
+library(readODS)
+library(ggplot2)
+df<-read_ods("Dataset.ods",col_names = TRUE)
+
+#Scatter plot with two variables
+qplot(RAC,ROE,data=df)
+
+#...adding colour according to third variable
+qplot(RAC,ROE,data=df,color=Country)
+
+#...adding trend line 
+qplot(RAC,ROE,data=df,geom=c("point","smooth"))
+#Histogram
+qplot(ROE,data=df)
+
+#...showing coloured subsets
+qplot(ROE,data=df,fill=Country)
+
+#Scatter plots split according to a third variable 
+qplot(RAC,ROE,data=df,facets=.~Country)
+
+#...with a regression line
+qplot(RAC,ROE,data=df,facets=.~Country,geom=c("point","smooth"),method="lm")
+#Density
+qplot(ROE,data=df,geom="density")
+#Scatter plot with colour according to third variable and regression lines
+qplot(RAC,ROE,data=df,color=Country,geom=c("point","smooth"),method="lm")
