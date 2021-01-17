@@ -14,6 +14,7 @@ bwplot(ROE~Rating,data=df)
 
 #Useful summary function to get mean, median and quartiles
 summary(RAC)
+
 #Histogram
 hist(ROE,col="green",main="XXX",breaks=5)
 
